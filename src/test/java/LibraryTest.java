@@ -12,10 +12,12 @@ import org.junit.Test;
  */
 public class LibraryTest {
     private Library classUnderTest;
+    private ElsoSzorgalmi elsoSzorgalmi;
 
     @Before
     public void setUp() {
         classUnderTest = new Library();
+        elsoSzorgalmi=new ElsoSzorgalmi();
     }
 
     @Test
@@ -28,4 +30,11 @@ public class LibraryTest {
    public void libraryCanTellItsName() {
       assertNotNull(classUnderTest.myNameIs());
    }
+
+
+    @Ignore
+    @Test
+    public void stringPoolSzorgalmi() {
+        assertTrue("Nem volt sikeres a szorgalmi megoldasa", elsoSzorgalmi.feladatSikeres());
+    }
 }
