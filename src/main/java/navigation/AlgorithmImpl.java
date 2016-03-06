@@ -9,13 +9,13 @@ public class AlgorithmImpl implements Algorithm {
 	}
 
 	@Override
-	public Iterable<Vertex> findShortestPath(long from, long to, long startTime) {
+	public Iterable<Integer> findShortestPath(int from, int to) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Iterable<Vertex> findFastestPath(long from, long to, long startTime) {
+	public Iterable<Integer> findFastestPath(long from, long to, long startTime) {
 		// TODO Auto-generated method stub
 		return null;
 	}
