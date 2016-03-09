@@ -4,9 +4,9 @@ public interface Algorithm {
 
 	void initialize(Graph graph);
 	
-	Iterable<Integer> findShortestPath(int from, int to);
+	DistanceResult findShortestPath(int from, int to);
 	
-	Iterable<Integer> findFastestPath(long from, long to, long startTime);
+	TimeResult findFastestPath(int from, int to);
 	
-	boolean hasPath(long from, long to);
+	boolean hasPath(int from, int to);
 }

@@ -14,7 +14,7 @@ public class PathChecker {
 		this.edges = new HashMap<Integer, Integer>();
 	}
 
-	public void init(String path) {
+	public void initialize(String path) {
 		try {
 			for (String line : Files.readAllLines(Paths.get(path))) {
 				String[] data = line.split("\\s+");
