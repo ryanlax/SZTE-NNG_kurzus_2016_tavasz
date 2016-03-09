@@ -1,8 +1,6 @@
 package navigation;
 
-import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.Test;
 
 public class NavigationTest {
 
@@ -14,14 +12,10 @@ public class NavigationTest {
     public void setUp() {
         navigation = new AlgorithmImpl();
         graph = new GraphImpl();
-        graph.build("graph.xml");
+        graph.initialize("graph.xml");
         navigation.initialize(graph);
         pathChecker = new PathChecker();
         pathChecker.initialize("checker.cfg");
     }
 	
-	@Test
-	public void test1() {
-		assertTrue(true);
-	}
 }

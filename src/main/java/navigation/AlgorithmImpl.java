@@ -1,5 +1,11 @@
 package navigation;
 
+/**
+ * Implement your navigation algorithm here.
+ * 
+ * @author blevai
+ *
+ */
 public class AlgorithmImpl implements Algorithm {
 
 	@Override
