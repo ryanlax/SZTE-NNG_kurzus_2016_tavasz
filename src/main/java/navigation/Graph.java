@@ -1,5 +1,7 @@
 package navigation;
 
+import java.io.File;
+
 /**
  * @author blevai
  *
@@ -7,12 +9,11 @@ package navigation;
 public interface Graph {
 
 	/**
-	 * Implement your graph creation here using the data given in an xml file of
-	 * predefined format.
+	 * Implement your graph construction here using an xml file of predefined format.
 	 * 
-	 * @param filePath
-	 *            path of the xml containing the graph
+	 * @param inputXmlFile
+	 *            the xml format file containing the graph data
 	 */
-	void initialize(String filePath);
+	void initializeFromFile(File inputXmlFile);
 
 }

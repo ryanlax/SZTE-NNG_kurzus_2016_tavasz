@@ -1,14 +1,10 @@
 package navigation;
 
-/**
- * @author blevai
- *
- */
 public interface TimeResult extends Result {
 
 	/**
-	 * @return the whole travel time of going along the result path
+	 * @return the whole travel time along the best path your algorithm found
 	 */
-	double getTravelTime();
+	double getTravelTimeOfResultPath();
 	
 }

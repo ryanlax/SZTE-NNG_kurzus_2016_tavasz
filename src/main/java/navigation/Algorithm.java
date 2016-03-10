@@ -1,53 +1,53 @@
 package navigation;
 
 /**
- * @author blevai
+ * startNodeId and destinationNodeId are the ids that can be found as properties
+ * of node xml elements in the project_root_dir/graph.xml input file.
  *
  */
 public interface Algorithm {
 
 	/**
-	 * Store the graph and implement any computation you would like to rely on
-	 * later during path searching, like calculating optimal landmark set, etc.
+	 * Store the graph. Implement and execute any computation you would like to
+	 * rely on later during path finding, like calculating optimal landmark set,
+	 * etc.
 	 * 
 	 * @param graph
-	 *            data over you will optimize
+	 *            the graph on which you will optimize
 	 */
-	void initialize(Graph graph);
+	void preprocess(Graph graph);
 
 	/**
 	 * Implement shortest path search minimizing the travel distance between two
 	 * points.
 	 * 
-	 * @param from
-	 *            start point
-	 * @param to
-	 *            end point
-	 * @return a good path between the start and end points, and the length of
-	 *         the path
+	 * @param startNodeId
+	 *            the id of the node where the path must start
+	 * @param destinationNodeId
+	 *            the id of the node where the path must end
+	 * @return the shortest path you found and the length of it
 	 */
-	DistanceResult findShortestPath(int from, int to);
+	DistanceResult findShortestPath(int startNodeId, int destinationNodeId);
 
 	/**
 	 * Implement shortest path search minimizing the travel time of the path.
 	 * 
-	 * @param from
-	 *            start point
-	 * @param to
-	 *            end point
-	 * @return a good path between the start and end points, and travel time of
-	 *         the path
+	 * @param startNodeId
+	 *            the id of the node where the path must start
+	 * @param destinationNodeId
+	 *            the id of the node where the path must end
+	 * @return the fastest path you found and the length of it
 	 */
-	TimeResult findFastestPath(int from, int to);
+	TimeResult findFastestPath(int startNodeId, int destinationNodeId);
 
 	/**
-	 * Determine whether there is at least one path between the start and end
-	 * points.
+	 * Determine whether there are any path between the start node and
+	 * destination node
 	 * 
-	 * @param from
-	 *            start point
-	 * @param to
-	 *            end point
+	 * @param startNodeId
+	 *            the id of the node where the path must start
+	 * @param destinationNodeId
+	 *            the id of the node where the path must end
 	 */
-	boolean hasPath(int from, int to);
+	boolean hasPath(int startNodeId, int destinationNodeId);
 }

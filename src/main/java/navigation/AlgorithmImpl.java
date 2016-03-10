@@ -1,33 +1,32 @@
 package navigation;
 
 /**
- * Implement your navigation algorithm here.
- * 
- * @author blevai
- *
+ * Implement your navigation algorithm here. This class will be instantiated
+ * during the unit tests.
  */
 public class AlgorithmImpl implements Algorithm {
 
 	@Override
-	public void initialize(Graph graph) {
+	public void preprocess(Graph graph) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public DistanceResult findShortestPath(int from, int to) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public TimeResult findFastestPath(int from, int to) {
+	public DistanceResult findShortestPath(int startNodeId,
+			int destinationNodeId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean hasPath(int from, int to) {
+	public TimeResult findFastestPath(int startNodeId, int destinationNodeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean hasPath(int startNodeId, int destinationNodeId) {
 		// TODO Auto-generated method stub
 		return false;
 	}

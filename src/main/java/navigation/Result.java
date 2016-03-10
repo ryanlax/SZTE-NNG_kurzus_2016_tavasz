@@ -1,19 +1,16 @@
 package navigation;
 
-/**
- * Interface to store the result path of path searchings.
- * 
- * @author blevai
- *
- */
+import java.util.List;
+
 public interface Result {
 
 	/**
-	 * @return a path as an iterable list of node ids, the first element must be
-	 *         the start node, the last element must be the end node of the path
-	 *         search. The elements in between them must be in the same order as
-	 *         they follow each other in the graph.
+	 * @return the best path your algorithm found as a list of node ids. The
+	 *         first node id in the list must be the start node of the
+	 *         underlying path search, the last must be destination node's id.
+	 *         The subsequent node ids must follow each other just as the nodes
+	 *         follow each other on the path in the graph.  
 	 */
-	public Iterable<Integer> getPath();
+	List<Integer> getResultPath();
 
 }

@@ -7,8 +7,8 @@ package navigation;
 public interface DistanceResult extends Result {
 
 	/**
-	 * @return the whole travel distance of the result path
+	 * @return the whole travel distance of the best path your algorithm found
 	 */
-	public double getTravelDistance();
+	double getTravelDistanceOfResultPath();
 	
 }

@@ -7,4 +7,4 @@ coordinates of their start and end nodes.
 
 Edges have an average speed property. You can travel along any edge
 by at most this speed. To calculate the minimal travel time along 
-an edge, you simply divide the edge's length by its averageSpeed.  
+an edge, you simply divide the edge's length by its averageSpeed.
