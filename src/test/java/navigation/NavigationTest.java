@@ -25,16 +25,19 @@ public class NavigationTest {
 		threadMxBean = ManagementFactory.getThreadMXBean();
 	}
 	
+	@Test
 	void hasPathTest01() {
 		Algorithm navigation = createNavigation();
 		assertTrue(navigation.hasPath(100, 100));
 	}
 	
+	@Test
 	void hasPathTest02() {
 		Algorithm navigation = createNavigation();
 		assertTrue(navigation.hasPath(1000, 1054));
 	}
 	
+	@Test
 	void hasPathTest03() {
 		Algorithm navigation = createNavigation();
 		assertTrue(navigation.hasPath(3492, 38439));
