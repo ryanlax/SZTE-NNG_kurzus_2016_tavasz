@@ -24,25 +24,75 @@ public class NavigationTest {
 		inputGraph = new File("graph.xml");
 		threadMxBean = ManagementFactory.getThreadMXBean();
 	}
-
+	
+	void hasPathTest01() {
+		Algorithm navigation = createNavigation();
+		assertTrue(navigation.hasPath(100, 100));
+	}
+	
+	void hasPathTest02() {
+		Algorithm navigation = createNavigation();
+		assertTrue(navigation.hasPath(1000, 1054));
+	}
+	
+	void hasPathTest03() {
+		Algorithm navigation = createNavigation();
+		assertTrue(navigation.hasPath(3492, 38439));
+	}
+	
 	@Test
 	void shortestPathTest01() {
-		final int startNodeId = 40644;
-		final int destinationNodeId = 7521;
-		navigation = createNavigation();
-		DistanceResult result = navigation.findShortestPath(startNodeId, destinationNodeId);
-		assertShortestPathValid(result, startNodeId, destinationNodeId, 1);
+		shortestPathTest(3493, 3494, 10200.0);
 	}
 
 	@Test
 	void shortestPathTest02() {
+		shortestPathTest(15917, 292, 12821.0);
+	}
+	
+	@Test
+	void shortestPathTest03() {
+		shortestPathTest(23430, 34446, 2675.0);
+	}
+	
+	@Test
+	void shortestPathTest04() {
+		shortestPathTest(6653, 12152, 903.0);
+	}
+	
+	@Test
+	void fastestPathTest01() {
+		fastestPathTest(3493, 3494, 137.0);
+	}
+
+	@Test
+	void fastestPathTest02() {
+		fastestPathTest(15917, 292, 165.0);
+	}
+	
+	@Test
+	void fastestPathTest03() {
+		fastestPathTest(23430, 34446, 50.0);
+	}
+	
+	@Test
+	void fastestPathTest04() {
+		fastestPathTest(6653, 12152, 20.0);
+	}
+	
+	void shortestPathTest(final int startNodeId, final int destinationNodeId,
+			final double optimum) {
 		navigation = createNavigation();
-		for (int i = 0; i < 100; i++) {
-			DistanceResult result = navigation.findShortestPath(40644, 7521);
-			assertTrue(pathChecker.isContinuous(result.getResultPath())
-					&& isValueInInterval(1,
-							result.getTravelDistanceOfResultPath(), 1 * 3));
-		}
+		DistanceResult result = navigation.findShortestPath(startNodeId,
+				destinationNodeId);
+		assertShortestPathValid(result, startNodeId, destinationNodeId, optimum);
+	}
+	
+	void fastestPathTest(final int startNodeId, final int destinationNodeId,
+			final double optimum) {
+		navigation = createNavigation();
+		TimeResult result = navigation.findFastestPath(startNodeId, destinationNodeId);
+		assertFastestPathValid(result, startNodeId, destinationNodeId, optimum);
 	}
 
 	private Algorithm createNavigation() {
