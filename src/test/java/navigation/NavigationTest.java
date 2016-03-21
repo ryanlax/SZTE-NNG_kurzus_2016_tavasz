@@ -1,11 +1,10 @@
 package navigation;
 
-import java.io.File;
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
-import java.util.List;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import static org.junit.Assert.*;
+import java.io.File;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,14 +14,12 @@ public class NavigationTest {
 	private Algorithm navigation;
 	private PathChecker pathChecker;
 	private File inputGraph;
-	private ThreadMXBean threadMxBean;
 
 	@Before
 	void setUp() {
 		pathChecker = new PathChecker();
 		pathChecker.initialize("checker.cfg");
 		inputGraph = new File("graph.xml");
-		threadMxBean = ManagementFactory.getThreadMXBean();
 	}
 	
 	@Test
@@ -40,7 +37,7 @@ public class NavigationTest {
 	@Test
 	void hasPathTest03() {
 		Algorithm navigation = createNavigation();
-		assertTrue(navigation.hasPath(3492, 38439));
+		assertFalse(navigation.hasPath(3492, 38439));
 	}
 	
 	@Test
