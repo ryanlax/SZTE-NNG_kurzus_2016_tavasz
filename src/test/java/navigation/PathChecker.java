@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class PathChecker {
@@ -27,7 +28,7 @@ public class PathChecker {
 		}
 	}
 
-	public boolean isContinuous(Iterable<Integer> path) {
+	public boolean isContinuous(List<Integer> path) {
 		Iterator<Integer> it = path.iterator();
 		if (it.hasNext()) {
 			Integer previousVertex = it.next();
@@ -40,5 +41,19 @@ public class PathChecker {
 			}
 		}
 		return true;
+	}
+	
+	public boolean isStartingWith(List<Integer> path, int startNodeId) {
+		if(!path.isEmpty()) {
+			return path.get(0) == startNodeId;
+		}
+		return false;
+	}
+	
+	public boolean isEndingWith(List<Integer> path, int destinationNodeId) {
+		if(!path.isEmpty()) {
+			return path.get(path.size()-1) == destinationNodeId;
+		}
+		return false;
 	}
 }
