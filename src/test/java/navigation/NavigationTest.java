@@ -1,7 +1,6 @@
 package navigation;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.io.File;
 import java.util.List;
@@ -16,71 +15,71 @@ public class NavigationTest {
 	private File inputGraph;
 
 	@Before
-	void setUp() {
+	public void setUp() {
 		pathChecker = new PathChecker();
 		pathChecker.initialize("checker.cfg");
 		inputGraph = new File("graph.xml");
 	}
 	
 	@Test
-	void hasPathTest01() {
+	public void hasPathTest01() {
 		Algorithm navigation = createNavigation();
 		assertTrue(navigation.hasPath(100, 100));
 	}
 	
 	@Test
-	void hasPathTest02() {
+	public void hasPathTest02() {
 		Algorithm navigation = createNavigation();
 		assertTrue(navigation.hasPath(1000, 1054));
 	}
 	
 	@Test
-	void hasPathTest03() {
+	public void hasPathTest03() {
 		Algorithm navigation = createNavigation();
 		assertFalse(navigation.hasPath(3492, 38439));
 	}
 	
 	@Test
-	void shortestPathTest01() {
+	public void shortestPathTest01() {
 		shortestPathTest(3493, 3494, 10200.0);
 	}
 
 	@Test
-	void shortestPathTest02() {
+	public void shortestPathTest02() {
 		shortestPathTest(15917, 292, 12821.0);
 	}
 	
 	@Test
-	void shortestPathTest03() {
+	public void shortestPathTest03() {
 		shortestPathTest(23430, 34446, 2675.0);
 	}
 	
 	@Test
-	void shortestPathTest04() {
+	public void shortestPathTest04() {
 		shortestPathTest(6653, 12152, 903.0);
 	}
 	
 	@Test
-	void fastestPathTest01() {
+	public void fastestPathTest01() {
 		fastestPathTest(3493, 3494, 137.0);
 	}
 
 	@Test
-	void fastestPathTest02() {
+	public void fastestPathTest02() {
 		fastestPathTest(15917, 292, 165.0);
 	}
 	
 	@Test
-	void fastestPathTest03() {
+	public void fastestPathTest03() {
 		fastestPathTest(23430, 34446, 50.0);
 	}
 	
 	@Test
-	void fastestPathTest04() {
+	public void fastestPathTest04() {
 		fastestPathTest(6653, 12152, 20.0);
 	}
 	
-	void shortestPathTest(final int startNodeId, final int destinationNodeId,
+	private void shortestPathTest(final int startNodeId, final int destinationNodeId,
 			final double optimum) {
 		navigation = createNavigation();
 		DistanceResult result = navigation.findShortestPath(startNodeId,
@@ -88,7 +87,7 @@ public class NavigationTest {
 		assertShortestPathValid(result, startNodeId, destinationNodeId, optimum);
 	}
 	
-	void fastestPathTest(final int startNodeId, final int destinationNodeId,
+	private void fastestPathTest(final int startNodeId, final int destinationNodeId,
 			final double optimum) {
 		navigation = createNavigation();
 		TimeResult result = navigation.findFastestPath(startNodeId, destinationNodeId);
@@ -105,6 +104,7 @@ public class NavigationTest {
 
 	private void assertShortestPathValid(DistanceResult result,
 			int startNodeId, int destinationNodeId, double distanceOptimum) {
+		assertNotNull(result);
 		assertPathValid(result.getResultPath(), startNodeId, destinationNodeId);
 		assertTrue(isValueInInterval(0.95 * distanceOptimum,
 				result.getTravelDistanceOfResultPath(), 2.0 * distanceOptimum));
@@ -112,6 +112,7 @@ public class NavigationTest {
 
 	private void assertFastestPathValid(TimeResult result, int startNodeId,
 			int destinationNodeId, double timeOptimum) {
+		assertNotNull(result);
 		assertPathValid(result.getResultPath(), startNodeId, destinationNodeId);
 		assertTrue(isValueInInterval(0.95 * timeOptimum,
 				result.getTravelTimeOfResultPath(), 2.0 * timeOptimum));
@@ -119,6 +120,7 @@ public class NavigationTest {
 
 	private void assertPathValid(List<Integer> path, int startNodeId,
 			int destinationNodeId) {
+		assertNotNull(path);
 		assertTrue(pathChecker.isStartingWith(path, startNodeId)
 				&& pathChecker.isEndingWith(path, destinationNodeId)
 				&& pathChecker.isContinuous(path));
