@@ -106,7 +106,7 @@ public class NavigationTest {
 			int startNodeId, int destinationNodeId, double distanceOptimum) {
 		assertNotNull(result);
 		assertPathValid(result.getResultPath(), startNodeId, destinationNodeId);
-		assertTrue(isValueInInterval(0.5 * distanceOptimum,
+		assertTrue(isValueInInterval(0.95 * distanceOptimum,
 				result.getTravelDistanceOfResultPath(), 2.0 * distanceOptimum));
 	}
 
@@ -114,7 +114,7 @@ public class NavigationTest {
 			int destinationNodeId, double timeOptimum) {
 		assertNotNull(result);
 		assertPathValid(result.getResultPath(), startNodeId, destinationNodeId);
-		assertTrue(isValueInInterval(0.5 * timeOptimum,
+		assertTrue(isValueInInterval(0.95 * timeOptimum,
 				result.getTravelTimeOfResultPath(), 2.0 * timeOptimum));
 	}
 
